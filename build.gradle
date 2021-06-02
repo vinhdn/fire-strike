@@ -1,0 +1,233 @@
+buildscript {
+    ext.ver_androidx_appcompat = '1.2.0' // managed by studio
+    ext.ver_androidx_preference = '1.1.1' // managed by studio
+    ext.ver_takisoftPreferences = '1.1.0' // https://github.com/Gericop/Android-Support-Preference-V7-Fix
+    ext.ver_processPhoenix = '2.0.0' // https://github.com/JakeWharton/ProcessPhoenix
+    ext.kotlin_version = '1.3.72'
+
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://maven.google.com" }
+        mavenCentral()
+    }
+
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << '-Xlint:all'
+        options.compilerArgs << '-Xlint:-deprecation'
+        options.compilerArgs << '-Xlint:-unchecked'
+    }
+}
+
+task cleanfix(type: Delete) {
+    delete rootProject.buildDir
+    delete "${rootProject.rootDir}/.cxx"
+    delete "${rootProject.rootDir}/.externalNativeBuild"
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+
+        versionName '1.0'
+        versionCode 1
+
+        applicationId 'com.eightsines.firestrike.opensource'
+
+        vectorDrawables.useSupportLibrary = true
+        renderscriptSupportModeEnabled true
+
+        ndk {
+            abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86', 'x86_64'
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('keystore/keystore.jks')
+            storePassword "kdaoiewjfkaowifjawef"
+            keyAlias "sticker10M"
+            keyPassword "kdaoiewjfkaowifjawef"
+        }
+    }
+
+    buildTypes {
+
+        debug {
+            debuggable true
+            applicationIdSuffix = ".debug"
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "${applicationId}-${versionCode}.apk"
+                }
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path 'src/main/cpp/CMakeLists.txt'
+        }
+    }
+
+    productFlavors {
+        store {
+            applicationId = "com.x${getTime()}game${randomName()}.${randomPack()}${getReleaseVersion()}ns"
+            buildConfigField "Integer", "artPosition", "${getArtPosition()}"
+        }
+
+        re {
+            applicationId = "com.xegame1b.PixelAnimal8"
+            buildConfigField "Integer", "artPosition", '40'
+        }
+    }
+
+    flavorDimensions 'market'
+    dexOptions {
+
+        jumboMode true
+        javaMaxHeapSize "4g"
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:${ver_androidx_appcompat}"
+    implementation "androidx.preference:preference:${ver_androidx_preference}"
+    implementation "com.jakewharton:process-phoenix:${ver_processPhoenix}"
+    implementation "com.takisoft.preferencex:preferencex:${ver_takisoftPreferences}"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.android.billingclient:billing-ktx:4.0.0'
+}
+
+static def randomName() {
+    def r = new Random()
+    def nameList = "if you did not want to quote everything like you did in the ruby example so providing both options in the answer would be nice".split()
+    def nameListSize = nameList.size()
+    return nameList[r.nextInt(nameListSize)]
+}
+
+static def randomPack() {
+    def r = new Random()
+    def packList = "yo di nt wnt to qute evthig lie yu dd in te rby exple so proding bth optios in the anwer wod be nce".split()
+    def packListSize = packList.size()
+    return packList[r.nextInt(packListSize)]
+}
+
+def increaseReleaseVersion() {
+    def versionPropsFile = file('version.properties')
+    if (versionPropsFile.canRead()) {
+        Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionPropsFile))
+
+        def code = versionProps['VERSION_CODE'].toInteger() + 1
+
+        versionProps['VERSION_CODE'] = code.toString()
+        versionProps['artPosition'] = code.toString()
+        versionProps.store(versionPropsFile.newWriter(), null)
+        return code
+    } else {
+        return 1
+    }
+}
+
+def getReleaseVersion() {
+    def versionPropsFile = file('version.properties')
+    if (versionPropsFile.canRead()) {
+        Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionPropsFile))
+        def code = versionProps['VERSION_CODE'].toInteger()
+        return code
+    } else {
+        return 1
+    }
+}
+
+def getArtPosition() {
+    def versionPropsFile = file('version.properties')
+    if (versionPropsFile.canRead()) {
+        Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionPropsFile))
+        def code = versionProps['artPosition'].toInteger()
+        return code
+    } else {
+        return 1
+    }
+}
+
+static def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('ddMM')
+    return formattedDate
+}
+
+static def getTime() {
+    def date = new Date()
+    def formattedDate = date.format('HHmm')
+    return formattedDate
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'assembleStoreRelease') {
+        task.doLast {
+            increaseReleaseVersion()
+            copy {
+                from "build/outputs/apk/store/release"
+                into "../Store"
+                include "*.apk"
+            }
+        }
+    }
+
+    if (task.name == 'assembleReRelease') {
+        task.doLast {
+            copy {
+                from "build/outputs/apk/re/release"
+                into "../Store"
+                include "*.apk"
+            }
+        }
+    }
+}

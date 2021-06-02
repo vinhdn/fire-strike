@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#f9ae49</color>
+    <color name="colorPrimary">#00F3A9</color>
+    <color name="colorPrimaryDark">#00F3A9</color>
+    <color name="gloomy_core_background">#000000</color>
+
+    <color name="gloomy_alt_text">#f3f3f3</color>
+    <color name="gloomy_alt_imp">#ffd700</color>
+
+    <color name="gloomy_achievements_altbg">#222222</color>
+    <color name="gloomy_achievements_divider">#33b5e5</color>
+    <color name="gloomy_achievements_locked">#696969</color>
+    <color name="gloomy_achievements_achieved">#adff2f</color>
+
+    <color name="gloomy_admarker_bg">#33b5e5</color>
+    <color name="gloomy_admarker_text">#ffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="black48">#ff484848</color>
+    <color name="black55">#ff555555</color>
+    <color name="blue">#ff55c3e6</color>
+    <color name="default_color">#ff565c74</color>
+    <color name="gold">#ffffd700</color>
+    <color name="gray">#ff808080</color>
+    <color name="green">#ff008000</color>
+    <color name="null_color">#00000000</color>
+    <color name="orange">#ffffa500</color>
+    <color name="pink">#ffffc0cb</color>
+    <color name="purple">#ff800080</color>
+    <color name="red">#ffff0000</color>
+    <color name="red63">#ffff630d</color>
+    <color name="white20">#20ffffff</color>
+    <color name="white40">#40ffffff</color>
+    <color name="yellow">#ffffff00</color>
+    <color name="selected_color">#ff3ca1f1</color>
+</resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="gloomy_core_actionbar_tab_padding">8dp</dimen>
+    <dimen name="gloomy_core_actionbar_tab_textsize">12dp</dimen>
+
+    <dimen name="gloomy_core_button_textsize">12dp</dimen>
+    <dimen name="gloomy_core_button_padding_vert">8dp</dimen>
+    <dimen name="gloomy_core_button_padding_hor">32dp</dimen>
+
+    <dimen name="gloomy_prepare_title_textsize">32dp</dimen>
+    <dimen name="gloomy_prepare_action_textsize">18dp</dimen>
+
+    <dimen name="gloomy_menu_textsize">14dp</dimen>
+
+    <dimen name="gloomy_selectepisode_textsize">12dp</dimen>
+    <dimen name="gloomy_selectepisode_episode_textsize">20dp</dimen>
+
+    <dimen name="gloomy_achievements_item_padding_vert">10dp</dimen>
+    <dimen name="gloomy_achievements_item_padding_hor">10dp</dimen>
+    <dimen name="gloomy_achievements_footer_padding_vert">6dp</dimen>
+
+    <dimen name="gloomy_alt_textsize">10dp</dimen>
+    <dimen name="gloomy_alt_title_textsize">14dp</dimen>
+    <dimen name="gloomy_alt_subtitle_textsize">12dp</dimen>
+    <dimen name="dimen_2dp">2dp</dimen>
+    <dimen name="dimen_4dp">4dp</dimen>
+    <dimen name="dimen_8dp">8dp</dimen>
+    <dimen name="dimen_9dp">9dp</dimen>
+    <dimen name="dimen_10dp">10dp</dimen>
+    <dimen name="dimen_12dp">12dp</dimen>
+    <dimen name="dimen_20dp">20dp</dimen>
+    <dimen name="dimen_32dp">32dp</dimen>
+    <dimen name="dimen_48dp">48dp</dimen>
+    <dimen name="dimen_3dp">3dp</dimen>
+    <dimen name="dimen_28dp">28dp</dimen>
+    <dimen name="dimen_14dp">14dp</dimen>
+    <dimen name="dimen_38dp">38dp</dimen>
+    <dimen name="dimen_14sp">14sp</dimen>
+    <dimen name="dimen_24dp">24dp</dimen>
+    <dimen name="menu_width">120dp</dimen>
+    <dimen name="dimen_300dp">300dp</dimen>
+    <dimen name="dimen_12sp">12sp</dimen>
+    <dimen name="dimen_52dp">52dp</dimen>
+    <dimen name="dimen_80dp">80dp</dimen>
+    <dimen name="dimen_18sp">18sp</dimen>
+    <dimen name="dimen_20sp">20sp</dimen>
+    <dimen name="dimen_26dp">26dp</dimen>
+    <dimen name="dimen_36dp">36dp</dimen>
+    <dimen name="min_button_width">120dp</dimen>
+    <dimen name="dimen_16sp">16sp</dimen>
+    <dimen name="button_width">200dp</dimen>
+    <dimen name="dimen_24sp">24sp</dimen>
+    <dimen name="dimen_40dp">40dp</dimen>
+    <dimen name="dimen_5dp">5dp</dimen>
+    <dimen name="dimen_35dp">35dp</dimen>
+    <dimen name="dimen_50dp">50dp</dimen>
+    <dimen name="dimen_250dp">250dp</dimen>
+    <dimen name="dimen_15dp">15dp</dimen>
+    <dimen name="dimen_30dp">30dp</dimen>
+    <dimen name="dimen_350dp">350dp</dimen>
+    <dimen name="dimen_10sp">10sp</dimen>
+    <dimen name="dimen_18dp">18dp</dimen>
+</resources>
