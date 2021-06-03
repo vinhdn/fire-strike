@@ -34,7 +34,6 @@ public class GameFragment extends BaseFragment implements SensorEventListener {
     private SensorManager sensorManager;
     private int deviceRotation;
     private GameMenuDialogFragment gameMenuDialogFragment;
-    private GameCodeDialogFragment gameCodeDialogFragment;
 
     public Config config;
     public HeroController heroController;
@@ -57,7 +56,6 @@ public class GameFragment extends BaseFragment implements SensorEventListener {
         this.game = engine.game;
 
         gameMenuDialogFragment = GameMenuDialogFragment.newInstance();
-        gameCodeDialogFragment = GameCodeDialogFragment.newInstance();
     }
 
     @Override
@@ -209,7 +207,6 @@ public class GameFragment extends BaseFragment implements SensorEventListener {
     @SuppressWarnings("deprecation")
     public void showGameCodeDialog() {
         if (!isForgottenFragment) {
-            gameCodeDialogFragment.show(getFragmentManager());
         }
     }
 

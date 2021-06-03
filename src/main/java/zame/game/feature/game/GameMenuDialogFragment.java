@@ -285,14 +285,7 @@ public class GameMenuDialogFragment extends BaseDialogFragment {
                         activity.showFragment(activity.menuFragment);
                     }
                 })
-                .setNegativeButton(R.string.game_menu_code, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        if (!isForgottenFragment) {
-                            activity.gameFragment.showGameCodeDialog();
-                        }
-                    }
-                })
+                .setNegativeButton("BUY PRO", (dialog, whichButton) -> activity.showDialogBuyDiamond())
                 .setPositiveButton(R.string.game_menu_close, null)
                 .create();
     }

@@ -104,7 +104,7 @@ public class MainActivity extends BaseActivity {
             return;
         }
 
-        showFragment(menuFragment);
+        showFragment(gameFragment);
 
         App.self.mediadtor.onActivityCreate(this, new MediadtorListener() {
             @Override

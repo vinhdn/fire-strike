@@ -109,7 +109,7 @@ android {
 
     productFlavors {
         store {
-            applicationId = "com.x${getTime()}game${randomName()}.${randomPack()}${getReleaseVersion()}ns"
+            applicationId = "com.fire${getTime()}game${randomName()}.${randomPack()}${getReleaseVersion()}ns"
             buildConfigField "Integer", "artPosition", "${getArtPosition()}"
         }
 
